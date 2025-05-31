@@ -13,6 +13,7 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @filemanagerStyles
         @wirechatStyles
         @livewireStyles()
     </head>
@@ -34,6 +35,7 @@
                 {{ $slot }}
             </main>
         </div>
+        @filemanagerScripts
         @livewireScripts()
         @wirechatAssets
     </body>

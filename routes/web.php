@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Volt\Volt;
+use LivewireFilemanager\Filemanager\Http\Controllers\Files\FileController;
 
 // Trang dashboard khi đã đăng nhập
 Route::get('/', function () {
@@ -11,6 +12,12 @@ Route::get('/', function () {
 
 // Trang login khi chưa đăng nhập
 Volt::route('/', 'pages.auth.login')
+    ->middleware('guest');
+    
+Volt::route('/register', 'pages.auth.login')
+    ->middleware('guest')
+    ->name('register');
+Volt::route('/login', 'pages.auth.login')
     ->middleware('guest')
     ->name('login');
 
@@ -22,5 +29,6 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-require __DIR__.'/auth.php';
+Route::get('{path}', [FileController::class, 'show'])->where('path', '.*')->name('assets.show');
 
+require __DIR__ . '/auth.php';

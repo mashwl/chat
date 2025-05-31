@@ -8,7 +8,9 @@ export default {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
         './vendor/namu/wirechat/resources/views/**/*.blade.php',
-        './vendor/namu/wirechat/src/Livewire/**/*.php'
+        './vendor/namu/wirechat/src/Livewire/**/*.php',
+        './resources/**/*.blade.php',
+        './vendor/livewire-filemanager/filemanager/resources/views/**/*.blade.php',
     ],
 
     theme: {
